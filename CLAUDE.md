@@ -4,7 +4,7 @@ Data-only repository containing the plugin/persona inventory manifest for the AI
 
 ## Purpose
 
-`inventory.yaml` is the single source of truth for all available plugins and personas. It is fetched at runtime by `plugin-core`'s `install-plugin` skill to discover and install plugins dynamically.
+`inventory.yaml` is the single source of truth for all available plugins and personas. It is fetched at runtime by ai-assistant's `InventoryClient` (configured via `config.agent.plugin_registries`) and used by the built-in `install-plugin` skill and dashboard to discover and install plugins dynamically.
 
 ## Files
 
