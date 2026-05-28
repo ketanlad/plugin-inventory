@@ -1,0 +1,71 @@
+version: "1"
+
+entries:
+  # ── Plugins ──────────────────────────────────────────────
+  - name: plugin-core
+    type: plugin
+    description: "Core system plugin — compaction, config, install-plugin, log-reader, usage-report, reminders, calendar"
+    repository: "https://github.com/ketanlad/plugin-core"
+    latest_version: "2.0.0"
+    category: core
+
+  - name: plugin-google
+    type: plugin
+    description: "Gmail tools and sensors"
+    repository: "https://github.com/ketanlad/plugin-google"
+    latest_version: "2.0.0"
+    category: integration
+
+  - name: plugin-microsoft-365
+    type: plugin
+    description: "Microsoft 365 email and Teams chat tools and sensors"
+    repository: "https://github.com/ketanlad/plugin-microsoft-365"
+    latest_version: "1.0.0"
+    category: integration
+
+  - name: plugin-whatsapp
+    type: plugin
+    description: "WhatsApp integration — message capture and search via whatsapp-bridge"
+    repository: "https://github.com/ketanlad/plugin-whatsapp"
+    latest_version: "0.2.0"
+    category: integration
+
+  - name: plugin-triage
+    type: plugin
+    description: "Cross-platform email and instant message triage skills"
+    repository: "https://github.com/ketanlad/plugin-triage"
+    latest_version: "1.0.0"
+    category: workflow
+    requires:
+      - plugin-google
+      - plugin-microsoft-365
+      - plugin-whatsapp
+
+  # ── Personas ─────────────────────────────────────────────
+  - name: persona-pa
+    type: persona
+    description: "Personal assistant persona — warm, resourceful, opinionated"
+    repository: "https://github.com/ketanlad/persona-pa"
+    latest_version: "1.0.0"
+    category: persona
+
+  - name: persona-operations
+    type: persona
+    description: "Operations persona — structured, process-oriented, reliability-focused"
+    repository: "https://github.com/ketanlad/persona-operations"
+    latest_version: "1.0.0"
+    category: persona
+
+  - name: persona-developer
+    type: persona
+    description: "Developer persona — terse, code-oriented, testing-focused"
+    repository: "https://github.com/ketanlad/persona-developer"
+    latest_version: "1.0.0"
+    category: persona
+
+  - name: persona-ceo
+    type: persona
+    description: "CEO persona — strategic, decisive, delegation-minded"
+    repository: "https://github.com/ketanlad/persona-ceo"
+    latest_version: "1.0.0"
+    category: persona

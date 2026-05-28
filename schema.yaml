@@ -1,0 +1,57 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: Plugin Inventory
+description: Schema for the plugin-inventory manifest (inventory.yaml)
+type: object
+required:
+  - version
+  - entries
+additionalProperties: false
+
+properties:
+  version:
+    type: string
+    description: Schema version identifier
+    enum: ["1"]
+
+  entries:
+    type: array
+    description: List of available plugins and personas
+    items:
+      type: object
+      required:
+        - name
+        - type
+        - description
+        - repository
+        - latest_version
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+          description: Kebab-case plugin or persona name
+          pattern: "^[a-z][a-z0-9-]+$"
+        type:
+          type: string
+          description: Entry type
+          enum: [plugin, persona]
+        description:
+          type: string
+          description: Short one-line description
+        repository:
+          type: string
+          description: Git clone URL
+          pattern: "^https://"
+        latest_version:
+          type: string
+          description: Latest released semver version
+          pattern: "^\\d+\\.\\d+\\.\\d+$"
+        category:
+          type: string
+          description: "Grouping: core, integration, workflow, persona"
+          enum: [core, integration, workflow, persona]
+        requires:
+          type: array
+          description: Soft dependency plugin names
+          items:
+            type: string
+            pattern: "^[a-z][a-z0-9-]+$"
