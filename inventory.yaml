@@ -4,9 +4,9 @@ entries:
   # ── Plugins ──────────────────────────────────────────────
   - name: plugin-core
     type: plugin
-    description: "Core system plugin — compaction, config, install-plugin, log-reader, usage-report, reminders, calendar"
+    description: "Core system plugin — compaction, config, log-reader, usage-report, reminders, calendar"
     repository: "https://github.com/ketanlad/plugin-core"
-    latest_version: "2.0.0"
+    latest_version: "2.1.0"
     category: core
 
   - name: plugin-google
