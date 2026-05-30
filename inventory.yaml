@@ -41,6 +41,14 @@ entries:
       - plugin-microsoft-365
       - plugin-whatsapp
 
+  # ── Gateways (managed processes) ─────────────────────────
+  - name: ai-gateway
+    type: gateway
+    description: "Telegram gateway — connects to the assistant's WS bus on :8767"
+    repository: "https://github.com/ketanlad/ai-gateway"
+    latest_version: "0.1.0"
+    category: integration
+
   # ── Personas ─────────────────────────────────────────────
   - name: persona-pa
     type: persona
