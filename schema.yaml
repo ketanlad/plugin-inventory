@@ -15,7 +15,9 @@ properties:
 
   entries:
     type: array
-    description: List of available plugins and personas
+    description: >-
+      List of available installable components — spans all four component
+      types: plugin, persona, gateway, service.
     items:
       type: object
       required:
@@ -28,7 +30,7 @@ properties:
       properties:
         name:
           type: string
-          description: Kebab-case plugin or persona name
+          description: Kebab-case component name (plugin/persona/gateway/service)
           pattern: "^[a-z][a-z0-9-]+$"
         type:
           type: string

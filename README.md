@@ -6,7 +6,7 @@ The `inventory.yaml` file is consumed by the `install-plugin` skill (in `plugin-
 
 ## Format
 
-`inventory.yaml` contains a `version` field and an `entries` array. Each entry describes one plugin or persona:
+`inventory.yaml` contains a `version` field and an `entries` array. Each entry describes one installable component — a plugin, persona, gateway, or service (the four types of the unified `ComponentManifest` contract):
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
