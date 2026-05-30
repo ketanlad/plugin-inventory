@@ -32,8 +32,10 @@ properties:
           pattern: "^[a-z][a-z0-9-]+$"
         type:
           type: string
-          description: Entry type
-          enum: [plugin, persona]
+          description: >-
+            Component type. plugin/persona are static workspace artifacts;
+            gateway/service are managed processes supervised by ai-supervisor.
+          enum: [plugin, persona, gateway, service]
         description:
           type: string
           description: Short one-line description

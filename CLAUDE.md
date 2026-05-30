@@ -1,6 +1,9 @@
 # plugin-inventory
 
-Data-only repository containing the plugin/persona inventory manifest for the AI assistant ecosystem.
+Data-only repository containing the installable-component inventory manifest for
+the AI assistant ecosystem. Entries span all four component types from the
+unified contract (`workspace-core`'s `ComponentManifest`, AI-414): `plugin`,
+`persona`, `gateway`, `service`.
 
 ## Purpose
 
@@ -22,6 +25,7 @@ Data-only repository containing the plugin/persona inventory manifest for the AI
 - **Kebab-case names** — all entry names use kebab-case (e.g. `plugin-core`, `persona-pa`).
 - **Schema validation** — after editing `inventory.yaml`, validate it against `schema.yaml`.
 - **Required fields** — every entry must have: `name`, `type`, `description`, `repository`, `latest_version`.
+- **Component types** — `type` is one of `plugin`, `persona`, `gateway`, `service`. `plugin`/`persona` are static; `gateway`/`service` are managed processes (their `component.yaml` carries a `process:` descriptor registered in the supervisor process table on install).
 - **Repository URLs** — follow the pattern `https://github.com/ketanlad/<name>`.
 
 ## When to update

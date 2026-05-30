@@ -11,12 +11,29 @@ The `inventory.yaml` file is consumed by the `install-plugin` skill (in `plugin-
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `name` | string | yes | Kebab-case plugin/persona name (e.g. `plugin-core`) |
-| `type` | string | yes | `"plugin"` or `"persona"` |
+| `type` | string | yes | `"plugin"`, `"persona"`, `"gateway"`, or `"service"` |
 | `description` | string | yes | Short one-line description |
 | `repository` | string | yes | Git clone URL (`https://github.com/...`) |
 | `latest_version` | string | yes | Latest released semver (e.g. `"2.0.0"`) |
 | `category` | string | no | Grouping: `core`, `integration`, `workflow`, `persona` |
 | `requires` | list | no | Soft dependency plugin names |
+
+### Component types
+
+All four installable-component types share this inventory shape (the unified
+contract defined in `workspace-core`'s `ComponentManifest`, AI-414):
+
+| `type` | Managed process? | Description |
+|--------|------------------|-------------|
+| `plugin` | No | Skills / tools / sensors / dashboard pages for the agent |
+| `persona` | No | Identity files shaping agent behaviour |
+| `gateway` | Yes | A managed process that connects to the agent's WS bus |
+| `service` | Yes | Any other managed process the ecosystem hosts |
+
+`gateway`/`service` entries describe **managed processes**: the component's own
+`component.yaml` carries a `process:` descriptor that is materialised into the
+supervisor's process table on install. The inventory entry itself stays the same
+shape for all four types.
 
 ## Adding a new entry
 
