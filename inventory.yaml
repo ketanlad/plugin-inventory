@@ -8,6 +8,9 @@ entries:
     repository: "https://github.com/ketanlad/plugin-core"
     latest_version: "2.1.0"
     category: core
+    # Foundational: ai-assistant's install.sh pulls this in. Flagged so the
+    # dashboard first-run flow (AI-429) highlights it alongside ai-assistant.
+    recommended_first: true
 
   - name: plugin-google
     type: plugin
@@ -50,6 +53,20 @@ entries:
     category: integration
 
   # ── Services (managed processes) ─────────────────────────
+  # ai-assistant is the foundational managed process (Story AI-424 / AI-425):
+  # it opens the WS bus on :8767 and is the first install in the dashboard
+  # first-run flow. Type `service` matches its component.yaml. Its install.sh
+  # pulls in plugin-core, so both are flagged recommended_first.
+  - name: ai-assistant
+    type: service
+    description: "Core AI agent — Claude + MCP + WS bus on :8767 (foundational process)"
+    repository: "https://github.com/ketanlad/ai-assistant"
+    latest_version: "0.1.0"
+    category: core
+    requires:
+      - plugin-core
+    recommended_first: true
+
   - name: whatsapp-bridge
     type: service
     description: "WhatsApp Baileys bridge — read-only message capture over HTTP on :3100; dashboard QR/pairing-code regeneration"
