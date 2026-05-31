@@ -59,3 +59,9 @@ properties:
           items:
             type: string
             pattern: "^[a-z][a-z0-9-]+$"
+        recommended_first:
+          type: boolean
+          description: >-
+            Advisory flag — the dashboard first-run flow highlights components
+            flagged true (foundational ai-assistant + plugin-core) ahead of
+            optional gateway/service add-ons. Defaults to false.

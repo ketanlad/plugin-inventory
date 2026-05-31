@@ -17,6 +17,16 @@ The `inventory.yaml` file is consumed by the `install-plugin` skill (in `plugin-
 | `latest_version` | string | yes | Latest released semver (e.g. `"2.0.0"`) |
 | `category` | string | no | Grouping: `core`, `integration`, `workflow`, `persona` |
 | `requires` | list | no | Soft dependency plugin names |
+| `recommended_first` | boolean | no | Highlight in the dashboard first-run flow (default `false`) |
+
+### `recommended_first`
+
+`recommended_first: true` flags the foundational components a fresh-install
+first-run flow should surface ahead of the optional gateway/service add-ons
+(Story AI-424 / AI-427). Today `ai-assistant` (the core agent, type `service`)
+and `plugin-core` (pulled in by ai-assistant's `install.sh`) carry it. It is
+advisory metadata only — `InventoryClient` exposes it on `InventoryEntry` but it
+does not affect parsing, filtering, or install behaviour.
 
 ### Component types
 

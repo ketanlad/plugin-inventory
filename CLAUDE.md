@@ -25,7 +25,8 @@ unified contract (`workspace-core`'s `ComponentManifest`, AI-414): `plugin`,
 - **Kebab-case names** — all entry names use kebab-case (e.g. `plugin-core`, `persona-pa`).
 - **Schema validation** — after editing `inventory.yaml`, validate it against `schema.yaml`.
 - **Required fields** — every entry must have: `name`, `type`, `description`, `repository`, `latest_version`.
-- **Component types** — `type` is one of `plugin`, `persona`, `gateway`, `service`. `plugin`/`persona` are static; `gateway`/`service` are managed processes (their `component.yaml` carries a `process:` descriptor registered in the supervisor process table on install).
+- **Component types** — `type` is one of `plugin`, `persona`, `gateway`, `service`. `plugin`/`persona` are static; `gateway`/`service` are managed processes (their `component.yaml` carries a `process:` descriptor registered in the supervisor process table on install). `ai-assistant` is the foundational `service` (WS bus on :8767).
+- **`recommended_first`** — optional boolean (default `false`). Flags the foundational components the dashboard first-run flow highlights ahead of optional add-ons (Story AI-424 / AI-427): `ai-assistant` + `plugin-core`. Advisory metadata only.
 - **Repository URLs** — follow the pattern `https://github.com/ketanlad/<name>`.
 
 ## When to update
